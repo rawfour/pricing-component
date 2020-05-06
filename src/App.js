@@ -7,6 +7,7 @@ const App = () => {
   return (
     <MainTemplate>
       <Background />
+
       <GlobalStyle />
     </MainTemplate>
   );

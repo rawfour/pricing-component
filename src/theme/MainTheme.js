@@ -5,11 +5,11 @@ const animations = {
 };
 
 const fontSizes = {
-  s: '1.3rem',
-  m: '1.5rem',
-  l: '1.7rem',
-  xl: '2rem',
-  xxl: '3.5rem',
+  s: '1.2rem',
+  m: '1.4rem',
+  l: '1.6rem',
+  xl: '3.5rem',
+  xxl: '6.2rem',
 };
 
 const breakpoints = {
@@ -25,8 +25,10 @@ export const theme = {
     lighGary: 'hsl(234, 14%, 74%)',
     gray: 'hsl(233, 13%, 49%)',
     darkGary: 'hsl(232, 13%, 33%)',
+    background: '#f7f7ff',
+    gradient: 'linear-gradient(to bottom right, hsl(236, 72%, 79%), hsl(237, 63%, 64%))',
+    white: '#ffffff',
   },
-  grdient: 'hsl(236, 72%, 79%) to hsl(237, 63%, 64%)',
   fontSizes,
   animations,
   breakpoints,
