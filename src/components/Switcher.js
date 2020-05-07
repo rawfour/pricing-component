@@ -4,10 +4,15 @@ import styled from 'styled-components';
 const StyledSwitcherWrapper = styled.div`
   display: inline-grid;
   grid-template-columns: auto auto auto;
-  grid-gap: 19px;
+  grid-gap: 18px;
   justify-content: center;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
+  @media ${({ theme }) => theme.breakpoints.lg} {
+    padding: 0;
+    margin-bottom: 25px;
+    grid-gap: 23px;
+  }
 `;
 
 const StyledSwitcherButton = styled.span`
@@ -68,8 +73,12 @@ const StyledCheckbox = styled.input`
 `;
 
 const StyledOptions = styled.label`
-  font-size: ${({ theme }) => theme.fontSizes.m};
+  font-size: ${({ theme }) => theme.fontSizes.s};
+  font-weight: 700;
   color: ${({ theme }) => theme.colors.lighGary};
+  @media ${({ theme }) => theme.breakpoints.lg} {
+    padding: 0;
+  }
 `;
 
 const Switcher = () => {

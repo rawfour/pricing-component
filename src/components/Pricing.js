@@ -5,13 +5,15 @@ import Switcher from './Switcher';
 import CardCompare from './CardCompare';
 
 const StyledPricingWrapper = styled.div`
-  position: fixed;
+  position: relative;
   display: grid;
   justify-items: center;
-  grid-gap: 35px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  grid-gap: 30px;
+  padding: 55px 0;
+  @media ${({ theme }) => theme.breakpoints.lg} {
+    padding: 65px 0;
+    grid-gap: 35px;
+  }
 `;
 
 const Pricing = () => {

@@ -5,18 +5,23 @@ import styled, { css } from 'styled-components';
 const StyledButton = styled.button`
   background-color: transparent;
   position: relative;
-  padding: 12px;
+  padding: 13px;
   border: 1px solid transparent;
   border-radius: 5px;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ theme }) => theme.fontSizes.s};
-  letter-spacing: 1.5px;
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  letter-spacing: 1.7px;
   font-weight: 700;
   margin-top: 10px;
   cursor: pointer;
   transition: 0.3s;
   z-index: 1;
+  @media ${({ theme }) => theme.breakpoints.lg} {
+    letter-spacing: 2.2px;
+    padding: 12px;
+  }
+
   &:before {
     content: '';
     position: absolute;

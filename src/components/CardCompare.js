@@ -3,9 +3,14 @@ import styled from 'styled-components';
 import Card from './Card';
 
 const StyledCardsWrapper = styled.div`
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
+  grid-gap: 25px;
+  @media ${({ theme }) => theme.breakpoints.lg} {
+    display: flex;
+    grid-gap: 0;
+  }
 `;
 
 const basic = {

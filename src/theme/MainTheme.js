@@ -5,10 +5,11 @@ const animations = {
 };
 
 const fontSizes = {
-  s: '1.2rem',
+  xs: '1.1rem',
+  s: '1.3rem',
   m: '1.4rem',
   l: '1.6rem',
-  xl: '2.9rem',
+  xl: '2.8rem',
   xxl: '3.5rem',
   xxxl: '6.2rem',
 };
