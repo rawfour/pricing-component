@@ -1,5 +1,7 @@
 # Pricing-component
 
+https://rawfour.github.io/pricing-component/
+
 ## Table of contents
 * [Instructions](#Instructions)
 * [Description](#Description)
@@ -30,4 +32,4 @@ This is pricing component designed by frontendmentor.io
 Project uses:
 * React
 * Styled Component
-* Tools: ESlint, Husky + lint-staged, Storybook
+* Tools: ESlint, Husky + lint-staged, Storybook, PerfectPixel
