@@ -1,14 +1,35 @@
 import React from 'react';
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components';
 import Button from './Button';
 
 const StyledCardWrapper = styled.div`
   display: inline-grid;
   width: 315px;
   grid-gap: 20px;
-  padding: 40px 28px;
-  background-color: #ffffff;
+  padding: 30px 28px;
   border-radius: 10px;
+  background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: ${({ theme }) => theme.shadow};
+  ${({ awarded }) =>
+    awarded &&
+    css`
+      padding: 49px 28px;
+      background-image: ${({ theme }) => theme.colors.gradient};
+      color: ${({ theme }) => theme.colors.white};
+      box-shadow: none;
+    `}
+    ${({ roundedLeft }) =>
+      roundedLeft &&
+      css`
+        border-radius: 10px 0 0 10px;
+      `}
+
+    ${({ roundedRight }) =>
+      roundedRight &&
+      css`
+        border-radius: 0 10px 10px 0;
+      `}
 `;
 
 const StyledName = styled.h3`
@@ -20,11 +41,12 @@ const StyledPrice = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSizes.xxl};
+  font-weight: 700;
+  font-size: ${({ theme }) => theme.fontSizes.xxxl};
 `;
 
 const StyledCurrency = styled.span`
-  font-size: ${({ theme }) => theme.fontSizes.xl};
+  font-size: ${({ theme }) => theme.fontSizes.xxl};
   margin-right: 8px;
 `;
 
@@ -39,27 +61,48 @@ const StyledBenefit = styled.span`
   text-align: center;
   padding: 14px 0;
   font-weight: 700;
-  border-top: 1px solid ${({ theme }) => theme.colors.gray};
+  border-top: 1px solid ${({ theme }) => theme.colors.lighGary};
   &:last-child {
-    border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.lighGary};
   }
 `;
 
-const Card = () => {
+const Card = ({ awarded, roundedLeft, roundedRight, content }) => {
+  const { name, price, currency, benefits } = content;
   return (
-    <StyledCardWrapper>
-      <StyledName>Basic</StyledName>
+    <StyledCardWrapper awarded={awarded} roundedLeft={roundedLeft} roundedRight={roundedRight}>
+      <StyledName>{name}</StyledName>
       <StyledPrice>
-        <StyledCurrency>$</StyledCurrency>19.99
+        <StyledCurrency>{currency}</StyledCurrency>
+        {price}
       </StyledPrice>
       <StyledBenefitsWrapper>
-        <StyledBenefit>500 GB Storage</StyledBenefit>
-        <StyledBenefit>2 Users Allowed</StyledBenefit>
-        <StyledBenefit>Send up to 3GB</StyledBenefit>
+        {benefits.map((item) => (
+          <StyledBenefit>{item}</StyledBenefit>
+        ))}
       </StyledBenefitsWrapper>
-      <Button>Learn more</Button>
+      <Button awarded={awarded}>Learn more</Button>
     </StyledCardWrapper>
   );
+};
+
+Card.propTypes = {
+  awarded: PropTypes.bool,
+  roundedLeft: PropTypes.bool,
+  roundedRight: PropTypes.bool,
+  content: PropTypes.shape(),
+};
+
+Card.defaultProps = {
+  awarded: false,
+  roundedLeft: false,
+  roundedRight: false,
+  content: {
+    name: '-',
+    price: '-',
+    currency: '-',
+    benefits: ['-', '-', '-'],
+  },
 };
 
 export default Card;
