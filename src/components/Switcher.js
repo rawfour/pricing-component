@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { SwitcherContext } from '../context';
 
 const StyledSwitcherWrapper = styled.div`
   display: inline-grid;
@@ -82,27 +83,25 @@ const StyledOptions = styled.label`
 `;
 
 const Switcher = () => {
-  const [checked, setChecked] = useState(false);
-
-  const handleChange = () => {
-    setChecked(!checked);
-  };
-
   return (
-    <StyledSwitcherWrapper>
-      <StyledOptions htmlFor="switch">Annually</StyledOptions>
-      <StyledCheckbox
-        checked={checked}
-        onChange={handleChange}
-        id="switch"
-        name="switch"
-        type="checkbox"
-      />
-      <StyledLabel isOn={checked} htmlFor="switch">
-        <StyledSwitcherButton />
-      </StyledLabel>
-      <StyledOptions htmlFor="switch">Monthly</StyledOptions>
-    </StyledSwitcherWrapper>
+    <SwitcherContext.Consumer>
+      {(switcher) => (
+        <StyledSwitcherWrapper>
+          <StyledOptions htmlFor="switch">Annually</StyledOptions>
+          <StyledCheckbox
+            checked={switcher.checked}
+            onChange={switcher.action}
+            id="switch"
+            name="switch"
+            type="checkbox"
+          />
+          <StyledLabel isOn={switcher.checked} htmlFor="switch">
+            <StyledSwitcherButton />
+          </StyledLabel>
+          <StyledOptions htmlFor="switch">Monthly</StyledOptions>
+        </StyledSwitcherWrapper>
+      )}
+    </SwitcherContext.Consumer>
   );
 };
 

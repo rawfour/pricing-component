@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import { SwitcherContext } from '../context';
 import Button from './Button';
 
 const StyledCardWrapper = styled.div`
@@ -99,21 +100,25 @@ const StyledBenefit = styled.span`
 `;
 
 const Card = ({ awarded, roundedLeft, roundedRight, content }) => {
-  const { name, price, currency, benefits } = content;
+  const { name, monthly, annually, currency, benefits } = content;
   return (
-    <StyledCardWrapper awarded={awarded} roundedLeft={roundedLeft} roundedRight={roundedRight}>
-      <StyledName>{name}</StyledName>
-      <StyledPrice awarded={awarded}>
-        <StyledCurrency>{currency}</StyledCurrency>
-        {price}
-      </StyledPrice>
-      <StyledBenefitsWrapper>
-        {benefits.map((item) => (
-          <StyledBenefit>{item}</StyledBenefit>
-        ))}
-      </StyledBenefitsWrapper>
-      <Button awarded={awarded}>Learn more</Button>
-    </StyledCardWrapper>
+    <SwitcherContext.Consumer>
+      {(switcher) => (
+        <StyledCardWrapper awarded={awarded} roundedLeft={roundedLeft} roundedRight={roundedRight}>
+          <StyledName>{name}</StyledName>
+          <StyledPrice awarded={awarded}>
+            <StyledCurrency>{currency}</StyledCurrency>
+            {switcher.checked ? monthly : annually}
+          </StyledPrice>
+          <StyledBenefitsWrapper>
+            {benefits.map((item) => (
+              <StyledBenefit key={item}>{item}</StyledBenefit>
+            ))}
+          </StyledBenefitsWrapper>
+          <Button awarded={awarded}>Learn more</Button>
+        </StyledCardWrapper>
+      )}
+    </SwitcherContext.Consumer>
   );
 };
 
@@ -130,7 +135,8 @@ Card.defaultProps = {
   roundedRight: false,
   content: {
     name: '-',
-    price: '-',
+    monthly: '-',
+    annually: false,
     currency: '-',
     benefits: ['-', '-', '-'],
   },

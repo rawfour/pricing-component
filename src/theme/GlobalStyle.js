@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: #f7f7ff;
   }
 
+
 `;
 
 export default GlobalStyle;

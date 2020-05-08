@@ -15,21 +15,24 @@ const StyledCardsWrapper = styled.div`
 
 const basic = {
   name: 'Basic',
-  price: '19.99',
+  monthly: '19.99',
+  annually: '199.99',
   currency: '$',
   benefits: ['500 GB Storage', '2 Users Allowed', 'Send up to 3GB'],
 };
 
 const pro = {
   name: 'Professional',
-  price: '24.99',
+  monthly: '24.99',
+  annually: '249.99',
   currency: '$',
   benefits: ['1 TB Storage', '5 Users Allowed', 'Send up to 10GB'],
 };
 
 const master = {
   name: 'Master',
-  price: '39.99',
+  monthly: '39.99',
+  annually: '399.99',
   currency: '$',
   benefits: ['2 TB Storage', '10 Users Allowed', 'Send up to 20GB'],
 };
