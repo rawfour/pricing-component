@@ -28,6 +28,12 @@ Run it
 $ npm start # or yarn start
 ```
 
+Run Storybook
+
+```bash
+$ npm run storybook # or yarn storybook
+```
+
 ## Description
 
 This is pricing component designed by frontendmentor.io
