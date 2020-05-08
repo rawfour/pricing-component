@@ -1,5 +1,7 @@
 # Pricing-component
 
+https://rawfour.github.io/pricing-component/
+
 ## Table of contents
 
 - [Instructions](#Instructions)
@@ -36,4 +38,4 @@ Project uses:
 
 - React + React Hooks + Context API
 - Styled Component
-- Tools: ESlint, Husky + lint-staged, Storybook
+- Tools: ESlint, Husky + lint-staged, Storybook, PerfectPixel

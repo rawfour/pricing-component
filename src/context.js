@@ -1,3 +1,5 @@
 import { createContext } from 'react';
 
-export const SwitcherContext = createContext();
+const func = () => {};
+
+export const SwitcherContext = createContext({ switcher: false, action: func });
